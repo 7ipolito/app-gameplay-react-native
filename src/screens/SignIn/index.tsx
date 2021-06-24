@@ -9,16 +9,19 @@ import {
 import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles';
 
-import { ButtonIcon } from '../../components/ButtonIcon';
+import ButtonIcon  from '../../components/ButtonIcon';
+import { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-export function SignIn(){
+const SignIn:React.FC = ()=>{
+  const navigation = useNavigation();
+
+  const handleSignIn=useCallback(()=>{
+        navigation.navigate('Home')
+  },[])
   return(
     <View style={styles.container}>
-      <StatusBar 
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
+     
       
       <Image 
         source={IllustrationImg} 
@@ -40,10 +43,12 @@ export function SignIn(){
 
         <ButtonIcon 
           title="Entrar com Discord"
-          activeOpacity={0.7}
+          onPress={handleSignIn}
         />                
                
       </View>
     </View>
   );
 }
+
+export default SignIn;

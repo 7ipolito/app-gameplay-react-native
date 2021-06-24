@@ -12,25 +12,23 @@ import {RectButton} from 'react-native-gesture-handler'
 import DiscordImg from '../../assets/discord.png';
 import { styles } from './styles';
 
-interface ButtonProps extends RectButtonProperties{
-  title: string;
+interface ListHeaderProps{
+    title:string;
+    subtitle:string;
 }
 
-const ButtonIcon:React.FC<ButtonProps> =({ title, ...rest })=>{
+const ListHeader:React.FC<ListHeaderProps>=({title,subtitle})=>{
   return(
-    <RectButton 
-      style={styles.container} 
-      {...rest }
-    >
-      <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon} />
-      </View>
-
+    <View style={styles.container}>
       <Text style={styles.title}>
         { title }
       </Text>
-    </RectButton>
+
+      <Text style={styles.subtitle}>
+        { subtitle }
+      </Text>
+    </View>
   );
 }
 
-export default ButtonIcon;
+export default ListHeader;
