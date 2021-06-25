@@ -8,6 +8,7 @@ import {
 
 import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles';
+import Background  from '../../components/Background';
 
 import ButtonIcon  from '../../components/ButtonIcon';
 import { useCallback } from 'react';
@@ -20,6 +21,7 @@ const SignIn:React.FC = ()=>{
         navigation.navigate('Home')
   },[])
   return(
+    <Background>
     <View style={styles.container}>
      
       
@@ -48,6 +50,7 @@ const SignIn:React.FC = ()=>{
                
       </View>
     </View>
+    </Background>
   );
 }
 

@@ -7,11 +7,13 @@ import CategorySelect from '../../components/CategorySelect';
 import ListDivider from '../../components/ListDivider';
 import ListHeader from '../../components/ListHeader';
 import  Profile  from '../../components/Profile';
+import Background  from '../../components/Background';
 
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 const Home:React.FC = () =>{
   const [category, setCategory] = useState('');
-
+  const navigation = useNavigation()
   const appointments = [
     {
       id: '1',
@@ -44,12 +46,21 @@ const Home:React.FC = () =>{
       categoryId === category ? setCategory('') : setCategory(categoryId);
     }  
 
+    function handleAppointmentDetails(){
+      navigation.navigate('AppointmentDetails')
+    }
+
+    function handleAppointmentCreate(){
+      navigation.navigate('AppointmentCreate')
+    }
+
 
     return(
+      <Background>
       <View>
       <View style={styles.header}>
-        <Profile />
-        <ButtonAdd />
+        <Profile name="Allan" />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
     
       <CategorySelect 
@@ -67,7 +78,10 @@ const Home:React.FC = () =>{
             data={appointments}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-            <Appointment data={item} />            
+            <Appointment
+             data={item}
+             onPress={handleAppointmentDetails}
+             />            
           )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
@@ -75,6 +89,7 @@ const Home:React.FC = () =>{
         />
       </View>
     </View>
+    </Background>
   );  
 }
 

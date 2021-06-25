@@ -12,10 +12,11 @@ const Background:React.FC<BackgroundProps> = ({children})=>{
 const{ secondary80,secondary100}=theme.colors;
     return(
         <LinearGradient
-        style={styles.container}
-        colors={[secondary80, secondary100]}>
-            {children}
-        </LinearGradient>
+      style={styles.container}
+      colors={[secondary80, secondary100]}
+    >
+      {children}
+    </LinearGradient>
     )
 }
 

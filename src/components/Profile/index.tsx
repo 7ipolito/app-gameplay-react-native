@@ -3,7 +3,10 @@ import {Text, View} from 'react-native'
 import Avatar from '../Avatar';
 import { styles } from './styles';
 
-const Profile: React.FC = () =>{
+  type Props={
+    name:string
+  }
+const Profile: React.FC<Props> = ({name}) =>{
     return(
         <View style={styles.container}>
 
@@ -16,7 +19,7 @@ const Profile: React.FC = () =>{
           </Text>
           
           <Text style={styles.username}>
-            Rodrigo
+            {name}
           </Text>
         </View>
 

@@ -8,6 +8,7 @@ import { styles } from './styles';
 
 interface CategoryProps extends RectButtonProps{
   title: string;
+  hasCheckBox?:boolean;
   icon: React.FC<SvgProps>;
   checked?: boolean;
 }
@@ -15,10 +16,11 @@ interface CategoryProps extends RectButtonProps{
 const Category: React.FC<CategoryProps> = ({
   title,
   icon: Icon,
+  hasCheckBox=false,
   checked = false,
   ...rest
 }) =>{
-    const{ secondary50,secondary70}=theme.colors;
+    const{ secondary50,secondary70,secondary85,secondary40}=theme.colors;
 
     return(
       <RectButton {...rest}>
@@ -26,10 +28,17 @@ const Category: React.FC<CategoryProps> = ({
       style={styles.container}
       colors={[secondary50, secondary70]}
       >
-        <View style={[styles.content, { opacity: checked ? 1 : 0.4 }]}>
-          <View style={
-            checked ? styles.checked : styles.check
-          }/>
+        <LinearGradient style={[styles.content, { opacity: checked ? 1 : 0.4 }]}
+        colors={[checked ? secondary85:secondary50,secondary40]}
+        >
+          {
+            hasCheckBox &&(
+              <View style={
+                checked ? styles.checked : styles.check
+              }/>
+            )
+          }
+          
 
           <Icon 
               width={48} 
@@ -39,7 +48,7 @@ const Category: React.FC<CategoryProps> = ({
           <Text style={styles.title}>
             { title }
           </Text>
-        </View>
+        </LinearGradient>
       </LinearGradient>
     </RectButton>
     )   
