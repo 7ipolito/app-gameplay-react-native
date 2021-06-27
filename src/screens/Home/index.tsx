@@ -39,7 +39,42 @@ const Home:React.FC = () =>{
       date: '22/06 às 20:40h',
       description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'      
     },
-    
+    {
+      id: '3',
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        icon: null,
+        owner: true
+      },
+      category: '1',
+      date: '22/06 às 20:40h',
+      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'      
+    },
+    {
+      id: '4',
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        icon: null,
+        owner: true
+      },
+      category: '1',
+      date: '22/06 às 20:40h',
+      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'      
+    },
+    {
+      id: '5',
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        icon: null,
+        owner: true
+      },
+      category: '1',
+      date: '22/06 às 20:40h',
+      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'      
+    },
   ]
  
     function handleCategorySelect(categoryId: string) {
@@ -74,21 +109,24 @@ const Home:React.FC = () =>{
           subtitle="Total 6"
         />
 
-        <FlatList 
+      
+      </View>
+    </View>
+    <FlatList 
             data={appointments}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
             <Appointment
              data={item}
              onPress={handleAppointmentDetails}
-             />            
+          />            
+          
           )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
+          contentContainerStyle={{paddingBottom:69}}
           showsVerticalScrollIndicator={false}
         />
-      </View>
-    </View>
     </Background>
   );  
 }

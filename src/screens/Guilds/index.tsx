@@ -16,6 +16,24 @@ const Guilds:React.FC<Props> = ({handleGuildSelect}:Props) =>{
             name:'Lendários',
             icon:'image.png',
             owner:true
+        },
+        {
+            id:'2',
+            name:'Lendários',
+            icon:'image.png',
+            owner:true
+        },
+        {
+            id:'3',
+            name:'Lendários',
+            icon:'image.png',
+            owner:true
+        },
+        {
+            id:'4',
+            name:'Lendários',
+            icon:'image.png',
+            owner:true
         }
     ]
     return(
@@ -28,7 +46,9 @@ const Guilds:React.FC<Props> = ({handleGuildSelect}:Props) =>{
                 data={item}
                 onPress={()=>handleGuildSelect(item)} />
             )}
-            ItemSeparatorComponent={()=><ListDivider/>}
+            ItemSeparatorComponent={()=><ListDivider isCentered/>}
+            contentContainerStyle={{paddingBottom:68,paddingTop:104}}
+            ListHeaderComponent={()=><ListDivider isCentered/>}
             style={styles.guilds}
             />
         </View>
