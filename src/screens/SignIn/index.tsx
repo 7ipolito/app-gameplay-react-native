@@ -4,7 +4,6 @@ import {
   Text, 
   Image,  
   StatusBar,
-  Alert,
 } from 'react-native';
 
 import IllustrationImg from '../../assets/illustration.png';
@@ -17,17 +16,13 @@ import { useNavigation } from '@react-navigation/native';
 
 const SignIn:React.FC = ()=>{
   const navigation = useNavigation();
-  const {user,SignIn} = useAuth();
-  
-  const handleSignIn=useCallback(async()=>{
-    try {
-      await SignIn();
-    } catch (error) {
-      Alert.alert(error)
-    }
+  const {user} = useAuth();
+  console.log(user)
+
+
+  const handleSignIn=useCallback(()=>{
+        navigation.navigate('Home')
   },[])
-
-
   return(
     <Background>
     <View style={styles.container}>
